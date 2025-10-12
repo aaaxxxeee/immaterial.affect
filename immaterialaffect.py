@@ -1,13 +1,20 @@
 from PIL import Image
+import random
 
-threshold = 0
+# Load image with alpha channel
+img = Image.open("hdd/igprofile.png").convert("RGBA")
+pixels = img.load()
 
-image_file = Image.open("hdd/igprofile.png")
-# Grayscale
-image_file = image_file.convert('L')
-# Threshold
-image_file = image_file.point( lambda p: 255 if p > threshold else 0 )
-# To mono
-image_file = image_file.convert('1')
+width, height = img.size
 
-Image.save("hdd/outfile.png")
+# Adjust the probability (0.0 to 1.0)
+delete_chance = 0.05  # 5% chance to "delete" a pixel
+
+for y in range(height):
+    for x in range(width):
+        if random.random() < delete_chance:
+            r, g, b, a = pixels[x, y]
+            pixels[x, y] = (r, g, b, 0)  # transparent pixel
+
+# Save to a new file (PNG supports alpha)
+img.save("hdd/igprofile.png")
