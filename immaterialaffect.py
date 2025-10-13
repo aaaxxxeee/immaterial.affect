@@ -1,20 +1,24 @@
+# lib
 from PIL import Image
 import random
+import os
 
-# Load image with alpha channel
-img = Image.open("hdd/igprofile.png").convert("RGBA")
-pixels = img.load()
+def decompose(img_path, portiontodelete=1, output_path=None):
 
-width, height = img.size
+# ouvrir image
+    img = Image.open(img_path).convert("RGBA")
+    pixels = img.load()
+    width, height = img.size
 
-# Adjust the probability (0.0 to 1.0)
-delete_chance = 0.05  # 5% chance to "delete" a pixel
+    for y in range(height):
+        for x in range(width):
+            if random.random() < portiontodelete:
+                r, g, b, a = pixels[x, y]
+                pixels[x, y] = (r, g, b, 0)  # transparent pixel
 
-for y in range(height):
-    for x in range(width):
-        if random.random() < delete_chance:
-            r, g, b, a = pixels[x, y]
-            pixels[x, y] = (r, g, b, 0)  # transparent pixel
+# save
+    if not output_path:
+        output_path = image_path 
+    img.save(output_path)
 
-# Save to a new file (PNG supports alpha)
-img.save("hdd/igprofile.png")
+decompose("hdd/igprofile.png", portiontodelete=1, output_path="hdd/igprofile.png")
