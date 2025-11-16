@@ -10,7 +10,8 @@ def decompose(p,portion=1,o=None):
                 r,g,b,a=px[x,y];px[x,y]=(r,g,b,0)
     i.save(o or p)
 
-for r,_,fs in os.walk('hdd'):
-    for f in fs:
-        if f.lower().endswith(('.png','.jpg','.jpeg')):
-            decompose(os.path.join(r,f),portion=0.05)
+while True:
+    for r,_,fs in os.walk('hdd'):
+        for f in fs:
+            if f.lower().endswith(('.png','.jpg','.jpeg')):
+                decompose(os.path.join(r,f),portion=0.05)
