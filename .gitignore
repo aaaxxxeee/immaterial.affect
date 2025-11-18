@@ -212,3 +212,4 @@ __marimo__/
 !/hdd/.gitkeep
 touchdesigner/Backup
 touchdesigner/immaterialaffect.*.toe
+.DS_Store
