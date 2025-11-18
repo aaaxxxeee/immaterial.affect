@@ -208,6 +208,7 @@ __marimo__/
 
 #touchdesigner
 
+/hdd/*
+!/hdd/.gitkeep
 touchdesigner/Backup
-hdd/*
 touchdesigner/immaterialaffect.*.toe
