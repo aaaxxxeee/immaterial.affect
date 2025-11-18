@@ -20,3 +20,4 @@ while True:
         for f in fs:
             if f.lower().endswith(('.png','.jpg','.jpeg')):
                 decompose(os.path.join(r,f),portion=0.05)
+                print("memory deterioration in progress on " + str(f))
