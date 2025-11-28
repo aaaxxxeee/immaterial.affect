@@ -36,7 +36,7 @@ if __name__ == '__main__':
                 if f.lower().endswith('.png'):
                     decompose(os.path.join(r, f), portion=0.05)
                     print("memory deterioration in progress on " + str(f))
-                    #pyautogui.write('chafa '+ str(f))
-                    #pyautogui.press('enter')
-                    #pyautogui.write('clear')
-                    #pyautogui.press('enter')
+                    pyautogui.write('chafa '+ str(f))
+                    pyautogui.press('enter')
+                    pyautogui.write('clear')
+                    pyautogui.press('enter')
