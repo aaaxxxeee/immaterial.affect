@@ -1,6 +1,7 @@
 # lib
 from PIL import Image
 import random, os
+import pyautogui
 
 def convert_jpgs_to_pngs(folder):
     for r, _, fs in os.walk(folder):
@@ -34,3 +35,7 @@ if __name__ == '__main__':
                 if f.lower().endswith('.png'):
                     decompose(os.path.join(r, f), portion=0.05)
                     print("memory deterioration in progress on " + str(f))
+                    pyautogui.write('chafa '+ str(f))
+                    pyautogui.press('enter')
+                    pyautogui.write('clear')
+                    pyautogui.press('enter')
