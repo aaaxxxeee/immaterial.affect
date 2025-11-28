@@ -46,3 +46,10 @@ class sourcecode:
 		
 	def ImageSelection(self):
 		parent.Project.findChildren(name="images")[0].par.file.expr = "op('folder1')[" + str(int(parent.Project.findChildren(name="count1")[0]['chan1'])) + ", 0]"
+	
+	def RefreshImages(self):
+		parent.Project.findChildren(name="images")[0].par.reloadpulse.pulse()
+	
+	def Reset(self):
+		parent.Project.findChildren(name="timer1")[0].par.file.start.pulse()
+		
