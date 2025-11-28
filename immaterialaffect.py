@@ -1,5 +1,6 @@
 # lib
-from PIL import Image
+from PIL import Image, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 import random, os
 import pyautogui
 
@@ -26,7 +27,7 @@ def decompose(p,portion=1,o=None):
                 else:
                     r, g, b = val; px[x, y] = (r, g, b)
     i.save(o or p)
-
+    
 if __name__ == '__main__':
     convert_jpgs_to_pngs('hdd')
     while True:
@@ -35,7 +36,7 @@ if __name__ == '__main__':
                 if f.lower().endswith('.png'):
                     decompose(os.path.join(r, f), portion=0.05)
                     print("memory deterioration in progress on " + str(f))
-                    pyautogui.write('chafa '+ str(f))
-                    pyautogui.press('enter')
-                    pyautogui.write('clear')
-                    pyautogui.press('enter')
+                    #pyautogui.write('chafa '+ str(f))
+                    #pyautogui.press('enter')
+                    #pyautogui.write('clear')
+                    #pyautogui.press('enter')
