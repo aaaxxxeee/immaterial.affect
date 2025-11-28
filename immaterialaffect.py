@@ -2,7 +2,9 @@
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 import random, os
-import pyautogui
+from pynput.keyboard import Key, Controller
+
+keyboard = Controller()
 
 def convert_jpgs_to_pngs(folder):
     for r, _, fs in os.walk(folder):
@@ -35,8 +37,10 @@ if __name__ == '__main__':
             for f in fs:
                 if f.lower().endswith('.png'):
                     decompose(os.path.join(r, f), portion=0.05)
+                    keyboard.type('chafa /home/aaxxee/immaterial.affect/hdd/'+ str(f))
+                    keyboard.press(Key.enter)
+                    keyboard.release(Key.enter)
+                    #pyautogui.press('enter')
+                    #pyautogui.write('clear')
+                    #pyautogui.press('enter')
                     print("memory deterioration in progress on " + str(f))
-                    pyautogui.write('chafa '+ str(f))
-                    pyautogui.press('enter')
-                    pyautogui.write('clear')
-                    pyautogui.press('enter')
